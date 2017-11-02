@@ -2,8 +2,6 @@ package com.example.teacherma.apspeedtest.future.main;
 
 import android.app.Activity;
 import android.content.Context;
-import android.graphics.Canvas;
-import android.graphics.Rect;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
@@ -15,29 +13,31 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.AttributeSet;
-import android.view.View;
+import android.view.Gravity;
 
 import com.example.teacherma.apspeedtest.R;
-import com.example.teacherma.apspeedtest.custom.TestHistoryItemDecoration;
+import com.example.teacherma.apspeedtest.api.NewTestCreatedCallback;
+import com.example.teacherma.apspeedtest.custom.NewTestPopupWindow;
 import com.example.teacherma.apspeedtest.framework.BaseView;
 import com.example.teacherma.apspeedtest.model.bean.HistoryResult;
 
 import java.util.List;
 
 import butterknife.BindView;
+import butterknife.OnClick;
 
-public class MainView extends BaseView<MainContract.Presenter> implements MainContract.View {
+public class MainView extends BaseView<MainContract.Presenter> implements MainContract.View, NewTestCreatedCallback {
 
     @BindView(R.id.history_result)
     RecyclerView mHistoryResult;
-    @BindView(R.id.new_test)
-    FloatingActionButton mNewTest;
     @BindView(R.id.nav_view)
     NavigationView mNavView;
     @BindView(R.id.drawer_layout)
     DrawerLayout mDrawerLayout;
     @BindView(R.id.tool_bar)
     Toolbar mToolBar;
+    @BindView(R.id.new_test)
+    FloatingActionButton mNewTest;
 
     private MainAdapter mAdapter;
 
@@ -69,5 +69,17 @@ public class MainView extends BaseView<MainContract.Presenter> implements MainCo
     @Override
     public void loadingHistory(List<HistoryResult> historyResults) {
         mAdapter.refreshData(historyResults);
+    }
+
+    @OnClick(R.id.new_test)
+    public void onViewClicked() {
+        new NewTestPopupWindow(getContext())
+                .setTestCreatedCallback(this)
+                .showAtLocation(this, Gravity.CENTER, 0, 0);
+    }
+
+    @Override
+    public void onNewTestCreated(String ip, String port) {
+
     }
 }

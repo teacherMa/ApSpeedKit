@@ -9,7 +9,7 @@ public class Constants {
 
     public static String BASE_URL = "";
     public static final String DATE_TO_STRING_FORMAT = "yyyy-mm-dd:hh-mm-ss";
-
+    public static final String DOT = ".";
 
     public interface ContentType {
         String

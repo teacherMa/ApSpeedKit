@@ -8,10 +8,15 @@
     <string name="nav_drawer_open">opened</string>
     <string name="nav_drawer_closed">closed</string>
 
-    <string name="history_result">历史记录</string>
-    <string name="test_time">测试时间</string>
-    <string name="average_upward_speed">上行平均速度</string>
-    <string name="average_down_speed">下行平均速度</string>
-    <string name="ip_address">IP地址</string>
-    <string name="port">端口号</string>
+    <string name="history_result">History records</string>
+    <string name="test_time">Test time</string>
+    <string name="average_upward_speed">Average Upward Speed</string>
+    <string name="average_down_speed">Average Down Speed</string>
+    <string name="ip_address">IP Address</string>
+    <string name="port">Port</string>
+
+    <string name="input_information">Please enter the required information </string>
+    <string name="input_ip_address">IP Address</string>
+    <string name="input_port">Port</string>
+    <string name="illegal_ip">Illegal Ip Address</string>
 </resources>
