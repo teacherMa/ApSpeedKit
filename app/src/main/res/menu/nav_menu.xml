@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:tools="http://schemas.android.com/tools"
+      tools:showIn="navigation_view">
+
+    <group
+        android:id="@+id/group_0"
+        android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/mav_menu_history"
+            android:title="@string/history"/>
+
+    </group>
+
+    <group
+        android:id="@+id/group_1"
+        android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/nav_menu_help"
+            android:icon="@drawable/ic_help"
+            android:title="@string/help"/>
+
+
+    </group>
+
+    <group
+        android:id="@+id/group_2"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_menu_about"
+            android:title="@string/about"/>
+    </group>
+
+</menu>

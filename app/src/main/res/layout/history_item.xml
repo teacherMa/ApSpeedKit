@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:id="@+id/time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/test_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:text="@string/test_time"
+            android:textSize="18sp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/time_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textSize="18sp"
+            android:gravity="center"/>
+    </LinearLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/service"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/time">
+
+        <TextView
+            android:id="@+id/test_ip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:text="@string/ip_address"
+            android:textSize="16sp"/>
+
+        <TextView
+            android:id="@+id/ip_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:layout_toEndOf="@id/test_ip"
+            android:layout_toRightOf="@id/test_ip"
+            android:gravity="center"
+            android:textSize="16sp"/>
+
+        <TextView
+            android:id="@+id/test_port"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/test_ip"
+            android:layout_margin="8dp"
+            android:gravity="center"
+            android:text="@string/port"
+            android:textSize="16sp"/>
+
+        <TextView
+            android:id="@+id/port_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/test_ip"
+            android:layout_margin="8dp"
+            android:layout_toEndOf="@id/test_port"
+            android:layout_toRightOf="@id/test_port"
+            android:gravity="center"
+            android:textSize="16sp"/>
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/speed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/time"
+        android:layout_toEndOf="@id/service"
+        android:layout_toRightOf="@id/service">
+
+        <TextView
+            android:id="@+id/upward_speed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:gravity="center"
+            android:text="@string/average_upward_speed"
+            android:textSize="16sp"/>
+
+        <TextView
+            android:id="@+id/upward_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:layout_toEndOf="@id/upward_speed"
+            android:layout_toRightOf="@id/upward_speed"
+            android:gravity="center"
+            android:textSize="16sp"/>
+
+        <TextView
+            android:id="@+id/down_speed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/upward_speed"
+            android:layout_margin="8dp"
+            android:gravity="center"
+            android:text="@string/average_down_speed"
+            android:textSize="16sp"/>
+
+        <TextView
+            android:id="@+id/down_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/upward_speed"
+            android:layout_margin="8dp"
+            android:layout_toEndOf="@id/down_speed"
+            android:layout_toRightOf="@id/down_speed"
+            android:gravity="center"
+            android:textSize="16sp"/>
+
+
+    </RelativeLayout>
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@id/port_value"
+        android:background="@color/colorPrimaryDark"/>
+
+
+</RelativeLayout>
+
