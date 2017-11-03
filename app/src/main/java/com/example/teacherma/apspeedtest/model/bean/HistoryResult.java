@@ -6,11 +6,13 @@ import com.example.teacherma.apspeedtest.utils.Constants;
 
 import java.util.Date;
 
+import io.realm.RealmObject;
+
 /**
  * @author teacherMa on 2017/11/2.
  */
 
-public class HistoryResult {
+public class HistoryResult extends RealmObject{
     private String mTime;
     private String mIp;
     private String mPort;
