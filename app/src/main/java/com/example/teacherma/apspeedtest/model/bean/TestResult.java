@@ -12,15 +12,15 @@ import io.realm.RealmObject;
  * @author teacherMa on 2017/11/2.
  */
 
-public class HistoryResult extends RealmObject{
+public class TestResult extends RealmObject {
     private String mTime;
     private String mIp;
     private String mPort;
     private String mUpwardSpeed;
     private String mDownSpeed;
 
-    public HistoryResult() {
-        mTime = (String) DateFormat.format(Constants.DATE_TO_STRING_FORMAT,new Date());
+    public TestResult() {
+        mTime = (String) DateFormat.format(Constants.DATE_TO_STRING_FORMAT, new Date());
         mIp = "192.168.1.1";
         mPort = "8080";
         mUpwardSpeed = "1MB/s";

@@ -7,11 +7,11 @@ import android.widget.TextView;
 import com.example.teacherma.apspeedtest.R;
 import com.example.teacherma.apspeedtest.api.OnItemClickListener;
 import com.example.teacherma.apspeedtest.framework.BaseViewHolder;
-import com.example.teacherma.apspeedtest.model.bean.HistoryResult;
+import com.example.teacherma.apspeedtest.model.bean.TestResult;
 
 import butterknife.BindView;
 
-public class MainVH extends BaseViewHolder<HistoryResult> {
+public class MainVH extends BaseViewHolder<TestResult> {
 
     @BindView(R.id.time_value)
     TextView mTimeValue;
@@ -29,7 +29,7 @@ public class MainVH extends BaseViewHolder<HistoryResult> {
     }
 
     @Override
-    protected void bindData(HistoryResult itemValue, int position, OnItemClickListener listener) {
+    protected void bindData(TestResult itemValue, int position, OnItemClickListener listener) {
         mTimeValue.setText(itemValue.getTime());
         mIpValue.setText(itemValue.getIp());
         mPortValue.setText(itemValue.getPort());

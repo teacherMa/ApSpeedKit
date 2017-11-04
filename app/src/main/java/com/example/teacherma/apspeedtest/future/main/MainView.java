@@ -17,16 +17,17 @@ import android.view.Gravity;
 
 import com.example.teacherma.apspeedtest.R;
 import com.example.teacherma.apspeedtest.api.NewTestCreatedCallback;
-import com.example.teacherma.apspeedtest.custom.NewTestPopupWindow;
+import com.example.teacherma.apspeedtest.custom.view.NewTestPopupWindow;
 import com.example.teacherma.apspeedtest.framework.BaseView;
-import com.example.teacherma.apspeedtest.model.bean.HistoryResult;
+import com.example.teacherma.apspeedtest.model.bean.TestResult;
 
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.OnClick;
 
-public class MainView extends BaseView<MainContract.Presenter> implements MainContract.View, NewTestCreatedCallback {
+public class MainView extends BaseView<MainContract.Presenter> implements MainContract.View,
+        NewTestCreatedCallback {
 
     @BindView(R.id.history_result)
     RecyclerView mHistoryResult;
@@ -40,6 +41,9 @@ public class MainView extends BaseView<MainContract.Presenter> implements MainCo
     FloatingActionButton mNewTest;
 
     private MainAdapter mAdapter;
+
+    private String mIp;
+    private String mPort;
 
     public MainView(@NonNull Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
@@ -67,8 +71,18 @@ public class MainView extends BaseView<MainContract.Presenter> implements MainCo
     }
 
     @Override
-    public void loadingHistory(List<HistoryResult> historyResults) {
+    public void loadingHistory(List<TestResult> historyResults) {
         mAdapter.refreshData(historyResults);
+    }
+
+    @Override
+    public void onRequestNewTestResult(int resultCode) {
+        getPresenter().testSpeed(mIp, mPort);
+    }
+
+    @Override
+    public void testResult(TestResult result) {
+
     }
 
     @OnClick(R.id.new_test)
@@ -80,6 +94,8 @@ public class MainView extends BaseView<MainContract.Presenter> implements MainCo
 
     @Override
     public void onNewTestCreated(String ip, String port) {
-
+        mIp = ip;
+        mPort = port;
+        getPresenter().requestBuildNewTest();
     }
 }

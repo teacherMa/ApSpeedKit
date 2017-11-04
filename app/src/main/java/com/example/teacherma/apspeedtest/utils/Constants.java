@@ -8,8 +8,32 @@ package com.example.teacherma.apspeedtest.utils;
 public class Constants {
 
     public static String BASE_URL = "";
-    public static final String DATE_TO_STRING_FORMAT = "yyyy-mm-dd:hh-mm-ss";
+    public static final String DATE_TO_STRING_FORMAT = "yyyy-MM-dd:hh-mm-ss";
     public static final String DOT = ".";
+
+    public interface PortFilter {
+        int
+                MAX_PORT = 65535,
+                MIN_PORT = 10000;
+    }
+
+    public interface IpAddressFilter {
+        int
+                MAX_IP = 255,
+                MIN_IP = 0;
+    }
+
+    public interface NetWorkError {
+        String
+                WIFI_CONNECTION_ERROR = "Wifi doesn't work",
+                UNKNOWN_ERROR = "Unknown error",
+                ACCESS_NETWORK_FAILED = "Access network state failed";
+    }
+
+    public interface BuildNewTestResult {
+        int
+                SUCCESS = 0;
+    }
 
     public interface ContentType {
         String

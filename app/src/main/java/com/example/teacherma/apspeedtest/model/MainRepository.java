@@ -4,7 +4,7 @@ import android.support.annotation.NonNull;
 
 import com.example.teacherma.apspeedtest.api.OnResultCallback;
 import com.example.teacherma.apspeedtest.framework.BaseRepository;
-import com.example.teacherma.apspeedtest.model.bean.HistoryResult;
+import com.example.teacherma.apspeedtest.model.bean.TestResult;
 
 import java.util.List;
 import java.util.concurrent.locks.Lock;
@@ -33,7 +33,17 @@ public class MainRepository extends BaseRepository implements MainDataSource {
     }
 
     @Override
-    public void getTestHistory(OnResultCallback<List<HistoryResult>> callback) {
+    public void getTestHistory(OnResultCallback<List<TestResult>> callback) {
         mLocalDS.getTestHistory(callback);
+    }
+
+    @Override
+    public void requestBuildNewTest(OnResultCallback<Integer> callback) {
+        mLocalDS.requestBuildNewTest(callback);
+    }
+
+    @Override
+    public void testSpeed(OnResultCallback<TestResult> callback, String ip, String port) {
+        mRemoteDS.testSpeed(callback, ip, port);
     }
 }

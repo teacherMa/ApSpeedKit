@@ -10,7 +10,7 @@ import com.example.teacherma.apspeedtest.model.remote.MainRemoteDS;
  */
 
 public class Injection {
-    public static MainRepository provideMainRepository(){
+    public static MainRepository provideMainRepository() {
         return MainRepository.getInstance(MainLocalDS.getInstance(), MainRemoteDS.getInstance());
     }
 }

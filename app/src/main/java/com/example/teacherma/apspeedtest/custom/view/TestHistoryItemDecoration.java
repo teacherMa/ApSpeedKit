@@ -1,4 +1,4 @@
-package com.example.teacherma.apspeedtest.custom;
+package com.example.teacherma.apspeedtest.custom.view;
 
 import android.graphics.Canvas;
 import android.graphics.Rect;

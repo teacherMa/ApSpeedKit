@@ -5,5 +5,5 @@ package com.example.teacherma.apspeedtest.api;
  */
 
 public interface NewTestCreatedCallback {
-    void onNewTestCreated(String ip,String port);
+    void onNewTestCreated(String ip, String port);
 }

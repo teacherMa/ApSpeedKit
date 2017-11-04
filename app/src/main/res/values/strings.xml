@@ -19,4 +19,6 @@
     <string name="input_ip_address">IP Address</string>
     <string name="input_port">Port</string>
     <string name="illegal_ip">Illegal Ip Address</string>
+
+    <string name="permission_error">Permission Error</string>
 </resources>

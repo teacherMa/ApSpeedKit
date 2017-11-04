@@ -4,9 +4,8 @@ import android.support.annotation.NonNull;
 
 import com.example.teacherma.apspeedtest.api.OnResultCallback;
 import com.example.teacherma.apspeedtest.framework.BasePresenter;
-import com.example.teacherma.apspeedtest.framework.BasePresenterApi;
 import com.example.teacherma.apspeedtest.model.MainRepository;
-import com.example.teacherma.apspeedtest.model.bean.HistoryResult;
+import com.example.teacherma.apspeedtest.model.bean.TestResult;
 import com.example.teacherma.apspeedtest.utils.BaseUtil;
 
 import java.util.List;
@@ -22,10 +21,10 @@ public class MainPresenter extends BasePresenter<MainContract.View, MainReposito
         requestHistory();
     }
 
-    private void requestHistory(){
-        OnResultCallback<List<HistoryResult>> resultCallback = new OnResultCallback<List<HistoryResult>>() {
+    private void requestHistory() {
+        OnResultCallback<List<TestResult>> resultCallback = new OnResultCallback<List<TestResult>>() {
             @Override
-            public void onSuccess(List<HistoryResult> resultValue, int code) {
+            public void onSuccess(List<TestResult> resultValue, int code) {
                 if (null == getView()) {
                     return;
                 }
@@ -41,5 +40,50 @@ public class MainPresenter extends BasePresenter<MainContract.View, MainReposito
             }
         };
         getRepository().getTestHistory(resultCallback);
+    }
+
+    @Override
+    public void requestBuildNewTest() {
+        OnResultCallback<Integer> resultCallback = new OnResultCallback<Integer>() {
+            @Override
+            public void onSuccess(Integer resultValue, int code) {
+                if (null == getView()) {
+                    return;
+                }
+                getView().onRequestNewTestResult(resultValue);
+            }
+
+            @Override
+            public void onFail(String errorMessage) {
+                if (null == getView()) {
+                    return;
+                }
+                BaseUtil.showToast(errorMessage);
+            }
+        };
+        getRepository().requestBuildNewTest(resultCallback);
+    }
+
+    @Override
+    public void testSpeed(String ip, String port) {
+        OnResultCallback<TestResult> resultCallback = new OnResultCallback<TestResult>() {
+            @Override
+            public void onSuccess(TestResult resultValue, int code) {
+                if (null == getView()) {
+                    return;
+                }
+                getView().testResult(resultValue);
+            }
+
+            @Override
+            public void onFail(String errorMessage) {
+                if (null == getView()) {
+                    return;
+                }
+                BaseUtil.showToast(errorMessage);
+            }
+        };
+
+        getRepository().testSpeed(resultCallback, ip, port);
     }
 }

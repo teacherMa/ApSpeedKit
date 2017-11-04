@@ -1,8 +1,7 @@
-package com.example.teacherma.apspeedtest.custom;
+package com.example.teacherma.apspeedtest.custom.view;
 
 import android.app.Activity;
 import android.content.Context;
-import android.graphics.drawable.BitmapDrawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,7 +10,6 @@ import android.widget.EditText;
 import android.widget.PopupWindow;
 import android.widget.TextView;
 
-import com.example.teacherma.apspeedtest.BuildConfig;
 import com.example.teacherma.apspeedtest.R;
 import com.example.teacherma.apspeedtest.api.NewTestCreatedCallback;
 import com.example.teacherma.apspeedtest.utils.BaseUtil;
@@ -101,7 +99,7 @@ public class NewTestPopupWindow extends PopupWindow {
                     return;
                 }
                 if (mTestCreatedCallback != null) {
-                    mTestCreatedCallback.onNewTestCreated(getIp(),getPort());
+                    mTestCreatedCallback.onNewTestCreated(getIp(), getPort());
                     NewTestPopupWindow.this.dismiss();
                 }
             }
@@ -110,17 +108,17 @@ public class NewTestPopupWindow extends PopupWindow {
 
     private boolean isLegalIpAddress() {
         try {
-            return Integer.parseInt(mIp1.getText().toString()) <= 255
-                    && Integer.parseInt(mIp1.getText().toString()) >= 0
-                    && Integer.parseInt(mIp2.getText().toString()) <= 255
-                    && Integer.parseInt(mIp2.getText().toString()) >= 0
-                    && Integer.parseInt(mIp3.getText().toString()) <= 255
-                    && Integer.parseInt(mIp3.getText().toString()) >= 0
-                    && Integer.parseInt(mIp4.getText().toString()) <= 255
-                    && Integer.parseInt(mIp4.getText().toString()) >= 0
-                    && Integer.parseInt(mPort.getText().toString()) <= 65535
-                    && Integer.parseInt(mPort.getText().toString()) >= 0;
-        }catch (Exception e){
+            return Integer.parseInt(mIp1.getText().toString()) <= Constants.IpAddressFilter.MAX_IP
+                    && Integer.parseInt(mIp1.getText().toString()) >= Constants.IpAddressFilter.MIN_IP
+                    && Integer.parseInt(mIp2.getText().toString()) <= Constants.IpAddressFilter.MAX_IP
+                    && Integer.parseInt(mIp2.getText().toString()) >= Constants.IpAddressFilter.MIN_IP
+                    && Integer.parseInt(mIp3.getText().toString()) <= Constants.IpAddressFilter.MAX_IP
+                    && Integer.parseInt(mIp3.getText().toString()) >= Constants.IpAddressFilter.MIN_IP
+                    && Integer.parseInt(mIp4.getText().toString()) <= Constants.IpAddressFilter.MAX_IP
+                    && Integer.parseInt(mIp4.getText().toString()) >= Constants.IpAddressFilter.MIN_IP
+                    && Integer.parseInt(mPort.getText().toString()) <= Constants.PortFilter.MAX_PORT
+                    && Integer.parseInt(mPort.getText().toString()) >= Constants.PortFilter.MIN_PORT;
+        } catch (Exception e) {
             return false;
         }
     }
@@ -136,7 +134,7 @@ public class NewTestPopupWindow extends PopupWindow {
 
     }
 
-    private String getPort(){
+    private String getPort() {
         return mPort.getText().toString();
     }
 
