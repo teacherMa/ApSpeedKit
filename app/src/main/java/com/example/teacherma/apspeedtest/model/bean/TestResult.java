@@ -16,15 +16,22 @@ public class TestResult extends RealmObject {
     private String mTime;
     private String mIp;
     private String mPort;
-    private String mUpwardSpeed;
-    private String mDownSpeed;
+    private String mTcpUpwardSpeed;
+    private String mUdpUpwardSpeed;
+    private String mUdpDownSpeed;
+    private String mTcpDownSpeed;
 
     public TestResult() {
         mTime = (String) DateFormat.format(Constants.DATE_TO_STRING_FORMAT, new Date());
         mIp = "192.168.1.1";
         mPort = "8080";
-        mUpwardSpeed = "1MB/s";
-        mDownSpeed = "2.5MB/s";
+        mTcpUpwardSpeed = "1MB/s";
+        mTcpDownSpeed = "2.5MB/s";
+    }
+
+    public TestResult(String tcpUpwardSpeed, String tcpDownSpeed) {
+        mTcpUpwardSpeed = tcpUpwardSpeed;
+        mTcpDownSpeed = tcpDownSpeed;
     }
 
     public String getTime() {
@@ -51,19 +58,35 @@ public class TestResult extends RealmObject {
         mPort = port;
     }
 
-    public String getUpwardSpeed() {
-        return mUpwardSpeed;
+    public String getTcpUpwardSpeed() {
+        return mTcpUpwardSpeed;
     }
 
-    public void setUpwardSpeed(String upwardSpeed) {
-        mUpwardSpeed = upwardSpeed;
+    public void setTcpUpwardSpeed(String tcpUpwardSpeed) {
+        mTcpUpwardSpeed = tcpUpwardSpeed;
     }
 
-    public String getDownSpeed() {
-        return mDownSpeed;
+    public String getTcpDownSpeed() {
+        return mTcpDownSpeed;
     }
 
-    public void setDownSpeed(String downSpeed) {
-        mDownSpeed = downSpeed;
+    public void setTcpDownSpeed(String tcpDownSpeed) {
+        mTcpDownSpeed = tcpDownSpeed;
+    }
+
+    public String getUdpUpwardSpeed() {
+        return mUdpUpwardSpeed;
+    }
+
+    public void setUdpUpwardSpeed(String udpUpwardSpeed) {
+        mUdpUpwardSpeed = udpUpwardSpeed;
+    }
+
+    public String getUdpDownSpeed() {
+        return mUdpDownSpeed;
+    }
+
+    public void setUdpDownSpeed(String udpDownSpeed) {
+        mUdpDownSpeed = udpDownSpeed;
     }
 }

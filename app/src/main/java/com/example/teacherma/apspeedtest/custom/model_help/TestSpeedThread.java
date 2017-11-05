@@ -1,6 +1,8 @@
 package com.example.teacherma.apspeedtest.custom.model_help;
 
-import java.io.IOException;
+import com.example.teacherma.apspeedtest.model.bean.TestResult;
+import com.example.teacherma.apspeedtest.utils.BaseUtil;
+
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.Socket;
@@ -10,8 +12,8 @@ import java.net.Socket;
  */
 
 public class TestSpeedThread extends Thread {
-    private static final int UPWARD_TIME = 5000;
-    private static final int BUFF_SIZE = 8*1024;
+    private static final int UPWARD_TIME = 1000;
+    private static final int BUFF_SIZE = 1024;
     private CallbackHandler mCallbackHandler;
     private String mIp;
     private String mPort;
@@ -24,17 +26,33 @@ public class TestSpeedThread extends Thread {
 
     @Override
     public void run() {
+        byte[] buffer = new byte[BUFF_SIZE];
         try {
             Socket socket = new Socket(mIp, Integer.parseInt(mPort));
             OutputStream outputStream = socket.getOutputStream();
             InputStream inputStream = socket.getInputStream();
             long startTime = System.currentTimeMillis();
             while (System.currentTimeMillis() - startTime <= UPWARD_TIME) {
-                outputStream.write(new byte[BUFF_SIZE]);
+                outputStream.write(buffer);
             }
-
-        } catch (IOException e) {
+            outputStream.write(new byte[1]);
+            byte[] serverSize = new byte[4];
+            if (inputStream.read(serverSize) == -1) {
+                mCallbackHandler.obtainFailMessage().sendToTarget();
+                return;
+            }
+            int serverTotalRevSize = BaseUtil.ByteArrayToInt(serverSize);
+            int clientTotalRevSize = 0;
+            int onceRevSize;
+            while ((onceRevSize = inputStream.read(buffer)) != -1) {
+                clientTotalRevSize += onceRevSize;
+            }
+            TestResult result = new TestResult(Integer.toString(serverTotalRevSize),
+                    Integer.toString(clientTotalRevSize));
+            mCallbackHandler.obtainTestResultMessage(result).sendToTarget();
+        } catch (Exception e) {
             e.printStackTrace();
+            mCallbackHandler.obtainFailMessage().sendToTarget();
         }
 
     }

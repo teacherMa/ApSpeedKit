@@ -33,7 +33,7 @@ public class MainVH extends BaseViewHolder<TestResult> {
         mTimeValue.setText(itemValue.getTime());
         mIpValue.setText(itemValue.getIp());
         mPortValue.setText(itemValue.getPort());
-        mUpwardValue.setText(itemValue.getUpwardSpeed());
-        mDownValue.setText(itemValue.getDownSpeed());
+        mUpwardValue.setText(itemValue.getTcpUpwardSpeed());
+        mDownValue.setText(itemValue.getTcpDownSpeed());
     }
 }

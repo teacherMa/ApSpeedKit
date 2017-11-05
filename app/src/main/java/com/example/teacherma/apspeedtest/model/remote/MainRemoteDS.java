@@ -3,6 +3,8 @@ package com.example.teacherma.apspeedtest.model.remote;
 import android.os.Handler;
 
 import com.example.teacherma.apspeedtest.api.OnResultCallback;
+import com.example.teacherma.apspeedtest.custom.model_help.CallbackHandler;
+import com.example.teacherma.apspeedtest.custom.model_help.TestSpeedThread;
 import com.example.teacherma.apspeedtest.model.MainDataSource;
 import com.example.teacherma.apspeedtest.model.bean.TestResult;
 
@@ -31,6 +33,9 @@ public class MainRemoteDS implements MainDataSource {
 
     @Override
     public void testSpeed(OnResultCallback<TestResult> callback, final String ip, final String port) {
+        CallbackHandler callbackHandler = new CallbackHandler(callback);
+        TestSpeedThread testSpeedThread = new TestSpeedThread(callbackHandler,ip,port);
+        testSpeedThread.start();
     }
 
     private static class SingletonHolder {

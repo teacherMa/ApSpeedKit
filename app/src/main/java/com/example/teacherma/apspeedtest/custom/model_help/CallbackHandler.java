@@ -14,6 +14,7 @@ import com.example.teacherma.apspeedtest.utils.Constants;
 public class CallbackHandler extends Handler {
     private OnResultCallback<TestResult> mOnResultCallback;
     private static final int TEST_RESULT = 451;
+    private static final int FAILED = 862;
 
     public CallbackHandler(OnResultCallback<TestResult> onResultCallback) {
         mOnResultCallback = onResultCallback;
@@ -21,16 +22,22 @@ public class CallbackHandler extends Handler {
 
     @Override
     public void handleMessage(Message msg) {
-        if (TEST_RESULT != msg.what){
+        if (FAILED == msg.what){
+            mOnResultCallback.onFail(Constants.NetWorkError.UNKNOWN_ERROR);
             return;
         }
-        if (null == mOnResultCallback) {
-            return;
+        if (TEST_RESULT == msg.what){
+            if (mOnResultCallback != null) {
+                mOnResultCallback.onSuccess((TestResult)msg.obj, Constants.ResultCode.REMOTE);
+            }
         }
-        mOnResultCallback.onSuccess((TestResult)msg.obj, Constants.ResultCode.REMOTE);
     }
 
     public Message obtainTestResultMessage(TestResult result){
         return this.obtainMessage(TEST_RESULT,result);
+    }
+
+    public Message obtainFailMessage(){
+        return this.obtainMessage(FAILED);
     }
 }

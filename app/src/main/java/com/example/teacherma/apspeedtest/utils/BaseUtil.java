@@ -13,6 +13,8 @@ import android.widget.Toast;
 
 import com.example.teacherma.apspeedtest.App;
 
+import java.io.ByteArrayInputStream;
+
 /**
  * Put some static functions that can be use everywhere
  * <p>
@@ -123,5 +125,10 @@ public class BaseUtil {
     public static float dipToPixels(float dipValue) {
         DisplayMetrics metrics = App.getAppContext().getResources().getDisplayMetrics();
         return TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dipValue, metrics);
+    }
+
+    public static int ByteArrayToInt(byte res[]) throws Exception {
+        return (res[0] & 0xff) | ((res[1] << 8) & 0xff00)
+                | ((res[2] << 24) >>> 8) | (res[3] << 24);
     }
 }
