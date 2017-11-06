@@ -90,48 +90,97 @@
 
 
         <RelativeLayout
-            android:id="@+id/speed"
+            android:id="@+id/tcp_speed"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/service">
 
             <TextView
-                android:id="@+id/upward_speed"
+                android:id="@+id/tcp_upward_speed"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp"
                 android:gravity="center"
-                android:text="@string/average_upward_speed"
+                android:text="@string/average_tcp_upward_speed"
                 android:textSize="16sp"/>
 
             <TextView
-                android:id="@+id/upward_value"
+                android:id="@+id/tcp_upward_value"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp"
-                android:layout_toEndOf="@id/upward_speed"
-                android:layout_toRightOf="@id/upward_speed"
+                android:layout_toEndOf="@id/tcp_upward_speed"
+                android:layout_toRightOf="@id/tcp_upward_speed"
                 android:gravity="center"
                 android:textSize="16sp"/>
 
             <TextView
-                android:id="@+id/down_speed"
+                android:id="@+id/tcp_down_speed"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/upward_speed"
+                android:layout_below="@id/tcp_upward_speed"
                 android:layout_margin="8dp"
                 android:gravity="center"
-                android:text="@string/average_down_speed"
+                android:text="@string/average_tcp_down_speed"
                 android:textSize="16sp"/>
 
             <TextView
-                android:id="@+id/down_value"
+                android:id="@+id/tcp_down_value"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/upward_speed"
+                android:layout_below="@id/tcp_upward_speed"
                 android:layout_margin="8dp"
-                android:layout_toEndOf="@id/down_speed"
-                android:layout_toRightOf="@id/down_speed"
+                android:layout_toEndOf="@id/tcp_down_speed"
+                android:layout_toRightOf="@id/tcp_down_speed"
+                android:gravity="center"
+                android:textSize="16sp"/>
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/udp_speed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tcp_speed">
+
+            <TextView
+                android:id="@+id/udp_upward_speed"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:gravity="center"
+                android:text="@string/average_udp_upward_speed"
+                android:textSize="16sp"/>
+
+            <TextView
+                android:id="@+id/udp_upward_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:layout_toEndOf="@id/udp_upward_speed"
+                android:layout_toRightOf="@id/udp_upward_speed"
+                android:gravity="center"
+                android:textSize="16sp"/>
+
+            <TextView
+                android:id="@+id/udp_down_speed"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/udp_upward_speed"
+                android:layout_margin="8dp"
+                android:gravity="center"
+                android:text="@string/average_udp_down_speed"
+                android:textSize="16sp"/>
+
+            <TextView
+                android:id="@+id/udp_down_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/udp_upward_speed"
+                android:layout_margin="8dp"
+                android:layout_toEndOf="@id/udp_down_speed"
+                android:layout_toRightOf="@id/udp_down_speed"
                 android:gravity="center"
                 android:textSize="16sp"/>
 

@@ -10,8 +10,10 @@
 
     <string name="history_result">History records</string>
     <string name="test_time">Test time</string>
-    <string name="average_upward_speed">Average Upward Speed</string>
-    <string name="average_down_speed">Average Down Speed</string>
+    <string name="average_tcp_upward_speed">Average Tcp Upward Speed</string>
+    <string name="average_tcp_down_speed">Average Tcp Down Speed</string>
+    <string name="average_udp_upward_speed">Average Udp Upward Speed</string>
+    <string name="average_udp_down_speed">Average Udp Down Speed</string>
     <string name="ip_address">IP Address</string>
     <string name="port">Port</string>
 

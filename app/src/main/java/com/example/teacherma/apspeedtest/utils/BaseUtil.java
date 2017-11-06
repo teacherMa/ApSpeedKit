@@ -128,7 +128,15 @@ public class BaseUtil {
     }
 
     public static int ByteArrayToInt(byte res[]) throws Exception {
-        return (res[0] & 0xff) | ((res[1] << 8) & 0xff00)
-                | ((res[2] << 24) >>> 8) | (res[3] << 24);
+        int convertedInteger = 0;
+        for(int i = 0; i < res.length; i++){
+            byte curValue = res[i];
+            long shiftedValue = curValue << (i * 8);
+            long mask = 0xFF << (i * 8);
+            long maskedShiftedValue = shiftedValue & mask;
+            convertedInteger |= maskedShiftedValue;
+        }
+
+        return convertedInteger;
     }
 }

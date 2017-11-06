@@ -8,7 +8,7 @@ package com.example.teacherma.apspeedtest.utils;
 public class Constants {
 
     public static String BASE_URL = "";
-    public static final String DATE_TO_STRING_FORMAT = "yyyy-MM-dd:hh-mm-ss";
+    public static final String DATE_TO_STRING_FORMAT = "yyyy-MM-dd  hh:mm:ss";
     public static final String DOT = ".";
 
     public interface PortFilter {

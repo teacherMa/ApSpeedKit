@@ -1,5 +1,7 @@
 package com.example.teacherma.apspeedtest.custom.model_help;
 
+import android.util.Log;
+
 import com.example.teacherma.apspeedtest.model.bean.TestResult;
 import com.example.teacherma.apspeedtest.utils.BaseUtil;
 
@@ -12,6 +14,8 @@ import java.net.Socket;
  */
 
 public class TestSpeedThread extends Thread {
+    private static final String TAG = "TestSpeedThread";
+
     private static final int UPWARD_TIME = 1000;
     private static final int BUFF_SIZE = 1024;
     private CallbackHandler mCallbackHandler;
@@ -35,18 +39,22 @@ public class TestSpeedThread extends Thread {
             while (System.currentTimeMillis() - startTime <= UPWARD_TIME) {
                 outputStream.write(buffer);
             }
-            outputStream.write(new byte[1]);
+            sleep(UPWARD_TIME);
+            socket.shutdownOutput();
+            Log.e(TAG, "run: send complete");
             byte[] serverSize = new byte[4];
             if (inputStream.read(serverSize) == -1) {
                 mCallbackHandler.obtainFailMessage().sendToTarget();
                 return;
             }
             int serverTotalRevSize = BaseUtil.ByteArrayToInt(serverSize);
+            Log.e(TAG, "run: send " + serverTotalRevSize);
             int clientTotalRevSize = 0;
             int onceRevSize;
             while ((onceRevSize = inputStream.read(buffer)) != -1) {
                 clientTotalRevSize += onceRevSize;
             }
+            Log.e(TAG, "run: rec " + clientTotalRevSize);
             TestResult result = new TestResult(Integer.toString(serverTotalRevSize),
                     Integer.toString(clientTotalRevSize));
             mCallbackHandler.obtainTestResultMessage(result).sendToTarget();

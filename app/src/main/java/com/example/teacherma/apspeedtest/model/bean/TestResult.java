@@ -27,9 +27,12 @@ public class TestResult extends RealmObject {
         mPort = "8080";
         mTcpUpwardSpeed = "1MB/s";
         mTcpDownSpeed = "2.5MB/s";
+        mUdpDownSpeed = "2.5MB/s";
+        mUdpUpwardSpeed = "1MB/s";
     }
 
     public TestResult(String tcpUpwardSpeed, String tcpDownSpeed) {
+        mTime = (String) DateFormat.format(Constants.DATE_TO_STRING_FORMAT, new Date());
         mTcpUpwardSpeed = tcpUpwardSpeed;
         mTcpDownSpeed = tcpDownSpeed;
     }

@@ -13,16 +13,21 @@ import butterknife.BindView;
 
 public class MainVH extends BaseViewHolder<TestResult> {
 
+
     @BindView(R.id.time_value)
     TextView mTimeValue;
     @BindView(R.id.ip_value)
     TextView mIpValue;
     @BindView(R.id.port_value)
     TextView mPortValue;
-    @BindView(R.id.upward_value)
-    TextView mUpwardValue;
-    @BindView(R.id.down_value)
-    TextView mDownValue;
+    @BindView(R.id.tcp_upward_value)
+    TextView mTcpUpwardValue;
+    @BindView(R.id.tcp_down_value)
+    TextView mTcpDownValue;
+    @BindView(R.id.udp_upward_value)
+    TextView mUdpUpwardValue;
+    @BindView(R.id.udp_down_value)
+    TextView mUdpDownValue;
 
     public MainVH(Context context, ViewGroup root) {
         super(context, root, R.layout.history_item);
@@ -33,7 +38,9 @@ public class MainVH extends BaseViewHolder<TestResult> {
         mTimeValue.setText(itemValue.getTime());
         mIpValue.setText(itemValue.getIp());
         mPortValue.setText(itemValue.getPort());
-        mUpwardValue.setText(itemValue.getTcpUpwardSpeed());
-        mDownValue.setText(itemValue.getTcpDownSpeed());
+        mTcpUpwardValue.setText(itemValue.getTcpUpwardSpeed());
+        mTcpDownValue.setText(itemValue.getTcpDownSpeed());
+        mUdpUpwardValue.setText(itemValue.getUdpUpwardSpeed());
+        mUdpDownValue.setText(itemValue.getUdpDownSpeed());
     }
 }
