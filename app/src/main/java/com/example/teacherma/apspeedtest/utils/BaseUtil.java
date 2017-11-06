@@ -13,8 +13,6 @@ import android.widget.Toast;
 
 import com.example.teacherma.apspeedtest.App;
 
-import java.io.ByteArrayInputStream;
-
 /**
  * Put some static functions that can be use everywhere
  * <p>
@@ -138,5 +136,14 @@ public class BaseUtil {
         }
 
         return convertedInteger;
+    }
+
+    public static byte[] intToByteArray(int inputIntegerValue) throws Exception {
+        byte[] convertedByteArr = new byte[4];
+        for (int i = 0; i < convertedByteArr.length; i++) {
+            convertedByteArr[i] = (byte) ((inputIntegerValue >> (8 * i)) & 0xFF);
+        }
+
+        return convertedByteArr;
     }
 }
