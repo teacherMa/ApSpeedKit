@@ -17,6 +17,8 @@
     <string name="ip_address">IP Address</string>
     <string name="port">Port</string>
 
+    <string name="wait_test">Waiting</string>
+
     <string name="input_information">Please enter the required information </string>
     <string name="input_ip_address">IP Address</string>
     <string name="input_port">Port</string>

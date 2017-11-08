@@ -11,8 +11,9 @@ import com.example.teacherma.apspeedtest.model.bean.TestResult;
 
 import butterknife.BindView;
 
-public class MainVH extends BaseViewHolder<TestResult> {
+import static android.view.View.INVISIBLE;
 
+public class MainVH extends BaseViewHolder<TestResult> {
 
     @BindView(R.id.time_value)
     TextView mTimeValue;
@@ -40,7 +41,9 @@ public class MainVH extends BaseViewHolder<TestResult> {
         mPortValue.setText(itemValue.getPort());
         mTcpUpwardValue.setText(itemValue.getTcpUpwardSpeed());
         mTcpDownValue.setText(itemValue.getTcpDownSpeed());
-        mUdpUpwardValue.setText(itemValue.getUdpUpwardSpeed());
-        mUdpDownValue.setText(itemValue.getUdpDownSpeed());
+//        mUdpUpwardValue.setText(itemValue.getUdpUpwardSpeed());
+        mUdpDownValue.setVisibility(INVISIBLE);
+        mUdpUpwardValue.setVisibility(INVISIBLE);
+//        mUdpDownValue.setText(itemValue.getUdpDownSpeed());
     }
 }

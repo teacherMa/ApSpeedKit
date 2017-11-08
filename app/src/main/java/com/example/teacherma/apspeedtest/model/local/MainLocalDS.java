@@ -24,7 +24,7 @@ public class MainLocalDS implements MainDataSource {
     @Override
     public void getTestHistory(OnResultCallback<List<TestResult>> callback) {
         ArrayList<TestResult> results = new ArrayList<>();
-        for (int i = 0; i < 1; i++) {
+        for (int i = 0; i < 0; i++) {
             results.add(new TestResult());
         }
         callback.onSuccess(results, Constants.ResultCode.LOCAL);

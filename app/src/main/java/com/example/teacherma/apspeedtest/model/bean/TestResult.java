@@ -4,6 +4,7 @@ import android.text.format.DateFormat;
 
 import com.example.teacherma.apspeedtest.utils.Constants;
 
+import java.text.DecimalFormat;
 import java.util.Date;
 
 import io.realm.RealmObject;
@@ -35,6 +36,12 @@ public class TestResult extends RealmObject {
         mTime = (String) DateFormat.format(Constants.DATE_TO_STRING_FORMAT, new Date());
         mTcpUpwardSpeed = tcpUpwardSpeed;
         mTcpDownSpeed = tcpDownSpeed;
+    }
+
+    public TestResult(float tcpUpwardSpeed,float tcpDownSpeed){
+        mTime = (String) DateFormat.format(Constants.DATE_TO_STRING_FORMAT, new Date());
+        mTcpUpwardSpeed = new DecimalFormat("###.##").format(tcpUpwardSpeed)+"MB/s";
+        mTcpDownSpeed = new DecimalFormat("###.##").format(tcpDownSpeed)+"MB/s";
     }
 
     public String getTime() {

@@ -1,6 +1,7 @@
 package com.example.teacherma.apspeedtest.future.main;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -14,6 +15,8 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.AttributeSet;
 import android.view.Gravity;
+import android.view.LayoutInflater;
+import android.view.View;
 
 import com.example.teacherma.apspeedtest.R;
 import com.example.teacherma.apspeedtest.api.NewTestCreatedCallback;
@@ -21,6 +24,7 @@ import com.example.teacherma.apspeedtest.custom.view.NewTestPopupWindow;
 import com.example.teacherma.apspeedtest.framework.BaseView;
 import com.example.teacherma.apspeedtest.model.bean.TestResult;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
@@ -41,6 +45,7 @@ public class MainView extends BaseView<MainContract.Presenter> implements MainCo
     FloatingActionButton mNewTest;
 
     private MainAdapter mAdapter;
+    private AlertDialog mDialog;
 
     private String mIp;
     private String mPort;
@@ -78,11 +83,20 @@ public class MainView extends BaseView<MainContract.Presenter> implements MainCo
     @Override
     public void onRequestNewTestResult(int resultCode) {
         getPresenter().testSpeed(mIp, mPort);
+        View view = LayoutInflater.from(getContext()).inflate(R.layout.wait_bar, null);
+        mDialog = new AlertDialog.Builder(getContext())
+                .setView(view).create();
+        mDialog.show();
     }
 
     @Override
     public void testResult(TestResult result) {
-
+        List<TestResult> results = new ArrayList<>();
+        results.add(result);
+        mAdapter.refreshData(results);
+        if (null != mDialog) {
+            mDialog.dismiss();
+        }
     }
 
     @OnClick(R.id.new_test)
