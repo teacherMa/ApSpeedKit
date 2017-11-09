@@ -1,12 +1,30 @@
 <resources>
     <string name="app_name">ApSpeedKit</string>
 
-    <string name="history">History</string>
+    <string name="main">MainPage</string>
     <string name="about">About ApSpeedKit</string>
     <string name="help">Help</string>
 
     <string name="nav_drawer_open">opened</string>
     <string name="nav_drawer_closed">closed</string>
+
+    <string name="app_info">
+        0.使用前请查看help\n\n
+        1.App源码:\nhttps://github.com/teacherMa/ApSpeedKit\n\n
+        2.服务端源码:\nhttps://github.com/teacherMa/ApSpeedKitServer\n\n
+        3.如有闪退或机型问题请发邮件至:\nmabenteng1997@gmail.com.
+    </string>
+
+    <string name="app_help">
+        0.本软件仅支持Android 4.1及以上系统，请相互转告\n\n
+        1.请确保已经和教师的电脑处于同一WIFI网络下\n\n
+        2.关闭数据流量,关闭VPN\n\n
+        3.点击右下角的 + ，填入教师电脑的IP地址（不需要填 . ，只支持IPV4)以及教师电脑开放的端口号,
+        点击确定之后，测速持续约10s，此过程中请勿关闭软件\n\n
+        4.测速结果会显示在主界面\n\n
+        5.如果测速过程超过10s，或显示 Unknown error,请检查是否已经和教师的电脑处于同一WIFI网络下，以及填入的IP地址和端口
+        号是否正确\n\n
+    </string>
 
     <string name="history_result">History records</string>
     <string name="test_time">Test time</string>

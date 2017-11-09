@@ -6,9 +6,9 @@
     android:layout_height="wrap_content"
     android:background="?android:attr/selectableItemBackground"
     android:clickable="true"
+    android:focusable="true"
     app:cardCornerRadius="24dp"
-    app:cardElevation="4dp"
-    android:focusable="true">
+    app:cardElevation="4dp">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -54,7 +54,8 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp"
                 android:text="@string/ip_address"
-                android:textSize="16sp"/>
+                android:textSize="16sp"
+                android:textStyle="bold"/>
 
             <TextView
                 android:id="@+id/ip_value"
@@ -74,7 +75,8 @@
                 android:layout_margin="8dp"
                 android:gravity="center"
                 android:text="@string/port"
-                android:textSize="16sp"/>
+                android:textSize="16sp"
+                android:textStyle="bold"/>
 
             <TextView
                 android:id="@+id/port_value"
@@ -102,7 +104,8 @@
                 android:layout_margin="8dp"
                 android:gravity="center"
                 android:text="@string/average_tcp_upward_speed"
-                android:textSize="16sp"/>
+                android:textSize="16sp"
+                android:textStyle="bold"/>
 
             <TextView
                 android:id="@+id/tcp_upward_value"
@@ -122,7 +125,8 @@
                 android:layout_margin="8dp"
                 android:gravity="center"
                 android:text="@string/average_tcp_down_speed"
-                android:textSize="16sp"/>
+                android:textSize="16sp"
+                android:textStyle="bold"/>
 
             <TextView
                 android:id="@+id/tcp_down_value"
@@ -151,7 +155,8 @@
                 android:layout_margin="8dp"
                 android:gravity="center"
                 android:text="@string/average_udp_upward_speed"
-                android:textSize="16sp"/>
+                android:textSize="16sp"
+                android:visibility="gone"/>
 
             <TextView
                 android:id="@+id/udp_upward_value"
@@ -161,7 +166,8 @@
                 android:layout_toEndOf="@id/udp_upward_speed"
                 android:layout_toRightOf="@id/udp_upward_speed"
                 android:gravity="center"
-                android:textSize="16sp"/>
+                android:textSize="16sp"
+                android:visibility="gone"/>
 
             <TextView
                 android:id="@+id/udp_down_speed"
@@ -171,7 +177,8 @@
                 android:layout_margin="8dp"
                 android:gravity="center"
                 android:text="@string/average_udp_down_speed"
-                android:textSize="16sp"/>
+                android:textSize="16sp"
+                android:visibility="gone"/>
 
             <TextView
                 android:id="@+id/udp_down_value"
@@ -182,7 +189,8 @@
                 android:layout_toEndOf="@id/udp_down_speed"
                 android:layout_toRightOf="@id/udp_down_speed"
                 android:gravity="center"
-                android:textSize="16sp"/>
+                android:textSize="16sp"
+                android:visibility="gone"/>
 
 
         </RelativeLayout>

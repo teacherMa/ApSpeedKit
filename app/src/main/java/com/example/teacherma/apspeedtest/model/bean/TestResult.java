@@ -7,13 +7,11 @@ import com.example.teacherma.apspeedtest.utils.Constants;
 import java.text.DecimalFormat;
 import java.util.Date;
 
-import io.realm.RealmObject;
-
 /**
  * @author teacherMa on 2017/11/2.
  */
 
-public class TestResult extends RealmObject {
+public class TestResult{
     private String mTime;
     private String mIp;
     private String mPort;
