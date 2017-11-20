@@ -10,4 +10,18 @@ A app can test AP connection speed
     ApSpeedKit和ApSpeedKitServer应运而生，教师在电脑上运行ApSpeedKitServer之后，学生在手机上运行ApSpeedKit，
     填入ip地址和端口号，即可达到测试网络速度和稳定性的目的，整个测速时间仅需十秒钟，而且在教师电脑上的
     ApSpeedKitServer拥有图形界面，非常方便教师进行统计和管理，大大提高了师生时间利用率。
+    
+    
 
+![image](https://github.com/teacherMa/ApSpeedKit/blob/master/app3.jpg)
+
+![image](https://github.com/teacherMa/ApSpeedKit/blob/master/app2.jpg)
+
+![image](https://github.com/teacherMa/ApSpeedKit/blob/master/app1.jpg)
+
+
+
+
+测试的时候只有手上只有一台手机，所以只显示了一个连接的具体情况
+
+![image](https://github.com/teacherMa/ApSpeedKit/blob/master/ser.png)
